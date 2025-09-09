@@ -108,7 +108,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Dynamic Hall of Fame with Kill Screenshots
+    // Dynamic Hall of Fame with collapsible sections
     const hallOfFameData = [
       {
         title: "The War Within Season 2 (2025)",
@@ -133,15 +133,23 @@
     hallOfFameData.forEach(season => {
       const section = document.createElement('section');
       section.classList.add('hof-season');
-      
+
+      const header = document.createElement('h3');
+      header.textContent = season.title;
+      header.classList.add('hof-header');
+      header.style.cursor = 'pointer';
+
+      const content = document.createElement('div');
+      content.classList.add('hof-content');
+      content.style.display = 'none';
+
       const screenshotsHTML = (season.killScreenshots || []).map(url => `
         <div class="hof-kill">
           <img src="${url}" alt="Kill Screenshot" />
         </div>
       `).join('');
 
-      section.innerHTML = `
-        <h3>${season.title}</h3>
+      content.innerHTML = `
         <p>${season.description}</p>
         <div class="hof-kills">
           <h4>Kill Screenshots</h4>
@@ -160,6 +168,12 @@
         </div>
       `;
 
+      header.addEventListener('click', () => {
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      });
+
+      section.appendChild(header);
+      section.appendChild(content);
       hofContainer.appendChild(section);
     });
   </script>
