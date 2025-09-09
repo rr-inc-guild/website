@@ -130,7 +130,7 @@
         expansion: "Dragonflight (2023 - 2024)",
         seasons: [
           {
-            title: "Season 3 - Amirdrassil, the Dream's Hope.",
+            title: "Season 3 - Amirdrassil, the Dream's Hope",
             description: "Our Mythic Fyrakk the Blazing",
             videoId: "dJeSQj6FZx8",
             killScreenshots: [
@@ -138,7 +138,7 @@
             ]
           },
           {
-            title: "Season 2 - Aberrus, the Shadowed Crucible.",
+            title: "Season 2 - Aberrus, the Shadowed Crucible",
             description: "Our Mythic Scalecommander Sarkareth",
             videoId: null,
             killScreenshots: [
@@ -183,12 +183,12 @@
             </div>
             <div class="hof-video">
               <h5>Season Highlights</h5>
-              <iframe width="100%" height="480" 
+              ${season.videoId ? `<iframe width="100%" height="480" 
                 src="https://www.youtube.com/embed/${season.videoId}" 
                 title="${season.title} Highlights" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
                 style="border-radius:10px; margin-top:10px;">
-              </iframe>
+              </iframe>` : '<p>No video available</p>'}
             </div>
           </div>
         `;
@@ -218,14 +218,17 @@
           seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
         }
 
-        // Recalculate parent expansion height immediately
+        // Recalculate parent expansion height including all headers and expanded contents
         let totalHeight = 0;
-        expansionContent.querySelectorAll('.hof-season-content').forEach(sc => {
-          if(sc.style.maxHeight){
-            totalHeight += sc.scrollHeight;
+        expansionContent.querySelectorAll('.hof-season').forEach(season => {
+          const header = season.querySelector('.hof-season-header');
+          const content = season.querySelector('.hof-season-content');
+          totalHeight += header.offsetHeight; // always include header
+          if(content.style.maxHeight){
+            totalHeight += content.scrollHeight; // include expanded content
           }
         });
-        expansionContent.style.maxHeight = totalHeight + expansionContent.querySelectorAll('.hof-season-header').length * 40 + "px";
+        expansionContent.style.maxHeight = totalHeight + "px";
       }
     });
   </script>
