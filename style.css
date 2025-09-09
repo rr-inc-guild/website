@@ -1,4 +1,4 @@
-/* General About Us Styling */
+/* About Us Styling with Guild Motifs */
 #aboutus {
   max-width: 900px;
   margin: 0 auto;
@@ -6,54 +6,91 @@
   font-family: 'Roboto', sans-serif;
   line-height: 1.7;
   color: #f5f5f5;
+  position: relative;
 }
 
+/* Guild emblem watermark (faint) */
+#aboutus::before {
+  content: "";
+  background: url('https://i.imgur.com/qh9sYlS.png') no-repeat center center; /* Replace with your guild emblem */
+  background-size: 200px auto;
+  opacity: 0.05;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Heading */
 #aboutus h2 {
   font-family: 'MedievalSharp', cursive;
   font-size: 2.5rem;
-  color: #ffd700; /* Golden color for emphasis */
+  color: #ffd700;
   margin-bottom: 20px;
   text-align: center;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 1px 1px 3px #000;
+  position: relative;
+  z-index: 1;
 }
 
+/* Subheadings with sword icon */
 #aboutus h3 {
   font-size: 1.8rem;
-  color: #ffa500; /* Slightly darker gold/orange */
+  color: #ffa500;
   margin-top: 30px;
   margin-bottom: 15px;
-  border-bottom: 2px solid #ffd700;
+  border-bottom: 1px solid #ffd700;
   padding-bottom: 5px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Sword icon before subheadings */
+#aboutus h3::before {
+  content: url('https://i.imgur.com/7S7iJbE.png'); /* small sword icon */
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Paragraphs */
 #aboutus p {
   font-size: 1.1rem;
   margin-bottom: 15px;
   text-align: justify;
+  position: relative;
+  z-index: 1;
 }
 
+/* Lists */
 #aboutus ul {
   list-style-type: disc;
   margin-left: 30px;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 #aboutus ul li {
   font-size: 1.1rem;
   margin-bottom: 10px;
-  padding-left: 5px;
 }
 
-/* Optional: highlight keywords in lists */
 #aboutus ul li strong {
   color: #ffd700;
 }
 
-/* Add a soft background for About Us section */
-#aboutus {
-  background: rgba(0,0,0,0.7); /* semi-transparent dark overlay */
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255,215,0,0.4);
+/* Section separators (gold horizontal line) */
+#aboutus section + section {
+  border-top: 1px solid #ffd700;
+  margin-top: 30px;
+  padding-top: 30px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive tweaks */
@@ -66,5 +103,9 @@
   }
   #aboutus p, #aboutus ul li {
     font-size: 1rem;
+  }
+  #aboutus::before {
+    width: 150px;
+    height: 150px;
   }
 }
