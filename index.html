@@ -206,27 +206,25 @@
         content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
       }
 
-      // Season toggle
+       // Season toggle
       if(e.target.closest('.hof-season-header')){
         const seasonContent = e.target.closest('.hof-season-header').nextElementSibling;
         const expansionContent = e.target.closest('.hof-expansion-content');
-
-        // Toggle the season
+      
+        // Toggle the season content
         if(seasonContent.style.maxHeight){
           seasonContent.style.maxHeight = null;
         } else {
           seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
         }
-
-        // Recalculate parent expansion height including all headers and expanded contents
+      
+        // Recalculate parent expansion height
         let totalHeight = 0;
         expansionContent.querySelectorAll('.hof-season').forEach(season => {
           const header = season.querySelector('.hof-season-header');
           const content = season.querySelector('.hof-season-content');
           totalHeight += header.offsetHeight; // always include header
-          if(content.style.maxHeight){
-            totalHeight += content.scrollHeight; // include expanded content
-          }
+          totalHeight += content.scrollHeight && content.style.maxHeight ? content.scrollHeight : 0;
         });
         expansionContent.style.maxHeight = totalHeight + "px";
       }
