@@ -1,18 +1,64 @@
-/* About Us Styling with Guild Motifs */
-#aboutus {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
   font-family: 'Roboto', sans-serif;
-  line-height: 1.7;
+  background-color: #1a1a1a;
   color: #f5f5f5;
+}
+
+/* Header */
+header {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ffd700;
+}
+
+header h1 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 2.5rem;
+  color: #ffd700;
+}
+
+header nav a {
+  color: #f5f5f5;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ffd700;
+}
+
+/* Tab content */
+.tab-content {
+  display: none;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* About Us Styling */
+#aboutus {
   position: relative;
 }
 
-/* Guild emblem watermark (faint) */
+/* Watermark */
 #aboutus::before {
   content: "";
-  background: url('https://i.imgur.com/qh9sYlS.png') no-repeat center center; /* Replace with your guild emblem */
+  background: url('https://i.imgur.com/qh9sYlS.png') no-repeat center center; /* Replace with your emblem */
   background-size: 200px auto;
   opacity: 0.05;
   position: absolute;
@@ -25,7 +71,7 @@
   z-index: 0;
 }
 
-/* Main Heading */
+/* Headings */
 #aboutus h2 {
   font-family: 'MedievalSharp', cursive;
   font-size: 2.5rem;
@@ -37,7 +83,6 @@
   z-index: 1;
 }
 
-/* Subheadings with sword icon */
 #aboutus h3 {
   font-size: 1.8rem;
   color: #ffa500;
@@ -49,7 +94,6 @@
   z-index: 1;
 }
 
-/* Sword icon before subheadings */
 #aboutus h3::before {
   content: url('https://i.imgur.com/7S7iJbE.png'); /* small sword icon */
   display: inline-block;
@@ -84,7 +128,7 @@
   color: #ffd700;
 }
 
-/* Section separators (gold horizontal line) */
+/* Section separators */
 #aboutus section + section {
   border-top: 1px solid #ffd700;
   margin-top: 30px;
@@ -93,8 +137,84 @@
   z-index: 1;
 }
 
-/* Responsive tweaks */
+/* Recruitment Form */
+#recruitment .hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#recruitment .hero h2 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 2rem;
+  color: #ffd700;
+}
+
+#recruitment form input, #recruitment form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background-color: #ffd700;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #ffa500;
+}
+
+/* Hall of Fame */
+.hof-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.hof-card {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  flex: 1 1 150px;
+}
+
+.hof-card img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #ffd700;
+  margin-top: 40px;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
+  header nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .hof-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
   #aboutus h2 {
     font-size: 2rem;
   }
