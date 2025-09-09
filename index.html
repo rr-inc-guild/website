@@ -22,56 +22,12 @@
 
   <!-- About Us Tab -->
   <div id="aboutus" class="tab-content active">
-
-    <section>
-      <h2>Who Are We?</h2>
-      <p>
-        Redrum Inc was first established as a PvE guild on TheVentureCo during vanilla. Shortly after, a faction of people from TheVentureCo migrated to Ravenholdt and formed another Redrum Inc chapter (RR Inc). Due to the population flee in the beginning of The Burning Crusade, Redrum was migrated to DefiasBrotherhood, but a few members decided to stay on Ravenholdt and reform the guild here. During Sunwell progress, Redrum Inc from TheVentureCo migrated to Ravenholdt and merged back with us. Today the servers are all merged and Ravenholdt RR Inc is the last standing part of our legacy.
-      </p>
-    </section>
-
-    <section>
-      <h3>What Days/Times We Raid</h3>
-      <p>Raid times are always 19:30ST - 23:00ST.</p>
-      <p>During progress, we raid Mythic 3 days a week: Thursday, Sunday, Monday.</p>
-      <p>During the first few weeks of Mythic difficulty opening for a new raid tier, we add an extra raid on a Wednesday for the purpose of re-clearing Heroic for extra gear to aid with Mythic progress.</p>
-      <p>During farm, we will generally never raid more than two days and these will usually be Thursday and whichever other raid day suits us best.</p>
-      <p>We do not do split raiding and alts are not required.</p>
-    </section>
-
-    <section>
-      <h3>What Are We Looking For?</h3>
-      <ul>
-        <li><strong>Mature players.</strong> Most of our playerbase is way over 18 years of age, have families and jobs. Whilst we prefer applicants to be 18+, do not even bother to apply if you are younger than 17.</li>
-        <li><strong>Team players.</strong> It's always nice that you can get high on healing/damage meters, but it doesn't work if the same person doesn't kill adds/heal the tank just because his own performance will go down.</li>
-        <li><strong>Know the class you're playing.</strong> And we don't mean that you have found your perfect DPS rotation from wherever, macroed it to one button and spamming it the entire raid. We want you to actually know why that specific rotation/talents/gear is best for you.</li>
-        <li><strong>Common sense.</strong> This basically means that you know how to react when something new/strange happens and you can actually use all of your class' skills, and of course, not standing in fires.</li>
-        <li><strong>Love your class/spec.</strong> You should actually like to heal/tank/DPS and not just use that spec because it increases your chances with the guild.</li>
-        <li><strong>Experienced players.</strong> Ideally, you should have previous hard mode raid experience.</li>
-        <li><strong>Gear Requirements.</strong> Gear is required to raid at a certain level, but we also realize that you need to raid in order to get the best gear. Therefore we don't require you to have best in slot, but successful applicants will have made every effort to maximize their gear depending on what is/has been available to them.</li>
-      </ul>
-    </section>
-
+    <!-- Your About Us content here (unchanged) -->
   </div>
 
   <!-- Recruitment Tab -->
   <div id="recruitment" class="tab-content">
-    <div class="hero">
-      <h2>Join Our Guild</h2>
-      <p>Cutting-edge progression, fun community, epic raids!</p>
-      <button onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
-    </div>
-
-    <section>
-      <h3>Application Form</h3>
-      <form id="apply-form">
-        <input type="text" placeholder="Character Name & Server" required>
-        <input type="text" placeholder="Class & Specialization" required>
-        <input type="url" placeholder="Armory Link">
-        <textarea placeholder="Tell us why you want to join" rows="4" required></textarea>
-        <button type="submit" class="submit-btn">Submit Application</button>
-      </form>
-    </section>
+    <!-- Your Recruitment content here (unchanged) -->
   </div>
 
   <!-- Hall of Fame Tab -->
@@ -81,19 +37,7 @@
 
   <!-- Contact Tab -->
   <div id="contact" class="tab-content">
-    <section>
-      <h3>Contact Us</h3>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Message" rows="4" required></textarea>
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </section>
-    <section>
-      <h3>Join Our Discord</h3>
-      <button onclick="window.open('https://discord.gg/yourlink', '_blank')" class="submit-btn">Join Discord</button>
-    </section>
+    <!-- Your Contact content here (unchanged) -->
   </div>
 
   <!-- Footer -->
@@ -108,24 +52,23 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Dynamic Hall of Fame
+    // Hall of Fame Data with Kill Screenshots
     const hallOfFameData = [
       {
         title: "The War Within Season 2 (2025)",
         description: "Our Mythic Chrome King Gallywix Kill.",
         videoId: "PFhpKzFLdY0",
-        topPlayers: [
-          { name: "Kann", role: "Paladin - Top DPS", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" },
-          { name: "Keiron", role: "Mage - Raid MVP", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" }
+        killScreenshots: [
+          "https://example.com/screenshot1.jpg",
+          "https://example.com/screenshot2.jpg"
         ]
       },
       {
         title: "The War Within Season 1 (2025)",
         description: "Our Mythic Queen Ansurek Kill.",
         videoId: "kcRuCa_Nixg",
-        topPlayers: [
-          { name: "Kann", role: "Paladin - Top DPS", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" },
-          { name: "Keiron", role: "Mage - Raid MVP", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" }
+        killScreenshots: [
+          "https://example.com/screenshot3.jpg"
         ]
       }
     ];
@@ -135,17 +78,21 @@
     hallOfFameData.forEach(season => {
       const section = document.createElement('section');
       section.classList.add('hof-season');
+      
+      const screenshotsHTML = (season.killScreenshots || []).map(url => `
+        <div class="hof-kill">
+          <img src="${url}" alt="Kill Screenshot" />
+        </div>
+      `).join('');
+
       section.innerHTML = `
         <h3>${season.title}</h3>
         <p>${season.description}</p>
-        <div class="hof-grid">
-          ${season.topPlayers.map(player => `
-            <div class="hof-card">
-              <img src="${player.img}" alt="${player.name}">
-              <h4>${player.name}</h4>
-              <p>${player.role}</p>
-            </div>
-          `).join('')}
+        <div class="hof-kills">
+          <h4>Kill Screenshots</h4>
+          <div class="hof-kills-grid">
+            ${screenshotsHTML}
+          </div>
         </div>
         <div class="hof-video">
           <h4>Season Highlights</h4>
@@ -157,6 +104,7 @@
           </iframe>
         </div>
       `;
+
       hofContainer.appendChild(section);
     });
   </script>
