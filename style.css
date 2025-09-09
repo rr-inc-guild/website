@@ -38,13 +38,15 @@ header nav a:hover { color:#ffd700; }
 .hof-expansion-header { background:#222; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-expansion-header:hover { background:#333; }
 .hof-expansion-header h3 { margin:0; color:#ffd700; }
-.hof-expansion-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 15px; }
+.hof-expansion-content { overflow: visible; padding:0 15px; }
 
+/* Seasons */
 .hof-season { border:1px solid #ffa500; border-radius:8px; margin:15px 0; overflow:hidden; }
 .hof-season-header { background:#333; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-season-header:hover { background:#444; }
 .hof-season-header h4 { margin:0; color:#ffa500; }
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
+.hof-season-content.open { max-height:2000px; } /* large enough to fit content smoothly */
 
 .hof-kills img { border-radius:10px; margin-bottom:10px; width:100%; display:block; }
 .hof-video iframe { border-radius:10px; margin-top:10px; }
