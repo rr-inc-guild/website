@@ -103,7 +103,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Hall of Fame with expansions and seasons
+    // Hall of Fame data
     const hallOfFameData = [
       {
         expansion: "The War Within (2025 - 2026)",
@@ -113,7 +113,7 @@
             description: "Our Mythic Chrome King Gallywix Kill.",
             videoId: "PFhpKzFLdY0",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png?ex=68c1ad8d&is=68c05c0d&hm=fe48094fdf4b08569fd1b0aedb3d7642c8a08d754be11569bde2698b22bd3169&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png"
             ]
           },
           {
@@ -121,7 +121,7 @@
             description: "Our Mythic Queen Ansurek Kill.",
             videoId: "kcRuCa_Nixg",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png?ex=68c1d0ca&is=68c07f4a&hm=51981e7beac8b5c4def0be1325c41df8386cef444dc580072e6a81cbe460e8d4&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png"
             ]
           }
         ]
@@ -130,19 +130,19 @@
         expansion: "Dragonflight (2023 - 2024)",
         seasons: [
           {
-            title: "Season 3 - Amirdrassil, the Dream's Hope",
+            title: "Season 3 - Amirdrassil, the Dream's Hope.",
             description: "Our Mythic Fyrakk the Blazing",
             videoId: "dJeSQj6FZx8",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1330979481313218722/21.jpg?ex=68c1cebc&is=68c07d3c&hm=86a1306e0344abaf0c3926f6419da062e0460eeca97c33ef50ba7eaf4a3dd6ad&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330979481313218722/21.jpg"
             ]
           },
           {
-            title: "Season 2 - Aberrus, the Shadowed Crucible",
+            title: "Season 2 - Aberrus, the Shadowed Crucible.",
             description: "Our Mythic Scalecommander Sarkareth",
             videoId: null,
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1330977596355248338/20.jpg?ex=68c1ccfb&is=68c07b7b&hm=d7a8ca082866f77980511afd0bdd65b8ccbccb34eca5b5bd2c75219337b99ec7&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330977596355248338/20.jpg"
             ]
           },
           {
@@ -150,7 +150,7 @@
             description: "Our Raszageth the Storm-Eater",
             videoId: "KD_0GajtGT4",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1330975517788340244/19.png?ex=68c1cb0b&is=68c0798b&hm=7991191a586d165bd0f1c14d1879b72b4a5d6428944655435e44784e66181767&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330975517788340244/19.png"
             ]
           }
         ]
@@ -159,6 +159,7 @@
 
     const hofContainer = document.getElementById('hof-container');
 
+    // Generate Hall of Fame
     hallOfFameData.forEach(exp => {
       const expansionDiv = document.createElement('div');
       expansionDiv.classList.add('hof-expansion');
@@ -183,12 +184,7 @@
             </div>
             <div class="hof-video">
               <h5>Season Highlights</h5>
-              ${season.videoId ? `<iframe width="100%" height="480" 
-                src="https://www.youtube.com/embed/${season.videoId}" 
-                title="${season.title} Highlights" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                style="border-radius:10px; margin-top:10px;">
-              </iframe>` : '<p>No video available</p>'}
+              ${season.videoId ? `<iframe width="100%" height="480" src="https://www.youtube.com/embed/${season.videoId}" title="${season.title} Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:10px; margin-top:10px;"></iframe>` : '<p>No video available</p>'}
             </div>
           </div>
         `;
@@ -198,35 +194,40 @@
       hofContainer.appendChild(expansionDiv);
     });
 
-    // Collapsible logic with instant parent resize
+    // Collapsible logic
     document.addEventListener('click', function(e){
-      // Expansion toggle
       if(e.target.closest('.hof-expansion-header')){
         const content = e.target.closest('.hof-expansion-header').nextElementSibling;
         content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
       }
 
-       // Season toggle
       if(e.target.closest('.hof-season-header')){
         const seasonContent = e.target.closest('.hof-season-header').nextElementSibling;
         const expansionContent = e.target.closest('.hof-expansion-content');
-      
-        // Toggle the season content
+
         if(seasonContent.style.maxHeight){
           seasonContent.style.maxHeight = null;
         } else {
           seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
         }
-      
-        // Recalculate parent expansion height
+
+        // Recalculate parent expansion height dynamically
         let totalHeight = 0;
         expansionContent.querySelectorAll('.hof-season').forEach(season => {
           const header = season.querySelector('.hof-season-header');
           const content = season.querySelector('.hof-season-content');
-          totalHeight += header.offsetHeight; // always include header
-          totalHeight += content.scrollHeight && content.style.maxHeight ? content.scrollHeight : 0;
+          totalHeight += header.offsetHeight;
+          if(content.style.maxHeight){
+            totalHeight += parseInt(content.style.maxHeight);
+          }
         });
         expansionContent.style.maxHeight = totalHeight + "px";
+
+        // Remove max-height after transition
+        expansionContent.addEventListener('transitionend', function te(){
+          expansionContent.style.maxHeight = 'none';
+          expansionContent.removeEventListener('transitionend', te);
+        });
       }
     });
   </script>
