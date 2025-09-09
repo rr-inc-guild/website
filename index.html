@@ -22,14 +22,12 @@
 
   <!-- About Us Tab -->
   <div id="aboutus" class="tab-content active">
-
     <section>
       <h2>Who Are We?</h2>
       <p>
         Redrum Inc was first established as a PvE guild on TheVentureCo during vanilla. Shortly after, a faction of people from TheVentureCo migrated to Ravenholdt and formed another Redrum Inc chapter (RR Inc). Due to the population flee in the beginning of The Burning Crusade, Redrum was migrated to DefiasBrotherhood, but a few members decided to stay on Ravenholdt and reform the guild here. During Sunwell progress, Redrum Inc from TheVentureCo migrated to Ravenholdt and merged back with us. Today the servers are all merged and Ravenholdt RR Inc is the last standing part of our legacy.
       </p>
     </section>
-
     <section>
       <h3>What Days/Times We Raid</h3>
       <p>Raid times are always 19:30ST - 23:00ST.</p>
@@ -38,7 +36,6 @@
       <p>During farm, we will generally never raid more than two days and these will usually be Thursday and whichever other raid day suits us best.</p>
       <p>We do not do split raiding and alts are not required.</p>
     </section>
-
     <section>
       <h3>What Are We Looking For?</h3>
       <ul>
@@ -51,7 +48,6 @@
         <li><strong>Gear Requirements.</strong> Gear is required to raid at a certain level, but we also realize that you need to raid in order to get the best gear. Therefore we don't require you to have best in slot, but successful applicants will have made every effort to maximize their gear depending on what is/has been available to them.</li>
       </ul>
     </section>
-
   </div>
 
   <!-- Recruitment Tab -->
@@ -61,7 +57,6 @@
       <p>Cutting-edge progression, fun community, epic raids!</p>
       <button onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
     </div>
-
     <section>
       <h3>Application Form</h3>
       <form id="apply-form">
@@ -118,7 +113,7 @@
             description: "Our Mythic Chrome King Gallywix Kill.",
             videoId: "PFhpKzFLdY0",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png?ex=68c1ad8d&is=68c05c0d&hm=fe48094fdf4b08569fd1b0aedb3d7642c8a08d754be11569bde2698b22bd3169&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png"
             ]
           },
           {
@@ -126,7 +121,7 @@
             description: "Our Mythic Queen Ansurek Kill.",
             videoId: "kcRuCa_Nixg",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png?ex=68c1d0ca&is=68c07f4a&hm=51981e7beac8b5c4def0be1325c41df8386cef444dc580072e6a81cbe460e8d4&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png"
             ]
           }
         ]
@@ -187,14 +182,17 @@
         const seasonContent = e.target.closest('.hof-season-header').nextElementSibling;
         const expansionContent = e.target.closest('.hof-expansion-content');
 
+        // Toggle the season
         if(seasonContent.style.maxHeight){
           seasonContent.style.maxHeight = null;
         } else {
           seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
         }
 
-        // Update parent expansion dynamically
-        expansionContent.style.maxHeight = expansionContent.scrollHeight + "px";
+        // Update parent expansion max-height dynamically
+        setTimeout(() => {
+          expansionContent.style.maxHeight = expansionContent.scrollHeight + "px";
+        }, 50);
       }
     });
   </script>
