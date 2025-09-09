@@ -13,26 +13,20 @@
   <header>
     <h1>RR Inc</h1>
     <nav>
+      <a href="#" onclick="showTab('aboutus')">About Us</a>
       <a href="#" onclick="showTab('recruitment')">Recruitment</a>
       <a href="#" onclick="showTab('halloffame')">Hall of Fame</a>
       <a href="#" onclick="showTab('contact')">Contact</a>
     </nav>
   </header>
 
-  <!-- Recruitment Tab -->
-  <div id="recruitment" class="tab-content active">
-    <div class="hero">
-      <h2>Join Our Guild</h2>
-      <p>Cutting-edge progression, fun community, epic raids!</p>
-      <button onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
-    </div>
-
+  <!-- About Us Tab (Default Homepage) -->
+  <div id="aboutus" class="tab-content active">
     <section>
-      <h3>About Us</h3>
-      <p>We are a top-tier World of Warcraft guild focused on progression and teamwork. Raid times: Tue/Thu 8-11 PM Server Time.</p>
-    </section>
+      <h2>About RR Inc</h2>
+      <p>We are a top-tier World of Warcraft guild focused on cutting-edge progression, teamwork, and community.</p>
+      <p>Raid times: Tue/Thu 8-11 PM Server Time. We welcome experienced players and those eager to grow in a fun, professional guild environment.</p>
 
-    <section>
       <h3>What We Offer</h3>
       <ul>
         <li>Cutting-edge raid progression</li>
@@ -41,6 +35,15 @@
         <li>Events, PvP, and fun activities</li>
       </ul>
     </section>
+  </div>
+
+  <!-- Recruitment Tab -->
+  <div id="recruitment" class="tab-content">
+    <div class="hero">
+      <h2>Join Our Guild</h2>
+      <p>Cutting-edge progression, fun community, epic raids!</p>
+      <button onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
+    </div>
 
     <section>
       <h3>Application Form</h3>
@@ -91,21 +94,21 @@
     // Dynamic Hall of Fame Data
     const hallOfFameData = [
       {
-        title: "Shadowlands (2020-2021)",
-        description: "Our guild achieved cutting-edge progression in Castle Nathria and Sanctum of Domination.",
-        videoId: "https://www.youtube.com/watch?v=PFhpKzFLdY0",
+        title: "The War Within Season 2 (2025)",
+        description: "Our Mythic Chrome King Gallywix Kill.",
+        videoId: "PFhpKzFLdY0",
         topPlayers: [
-          { name: "Player1", role: "Warrior - Top DPS", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_warrior.jpg" },
-          { name: "Player2", role: "Mage - Raid MVP", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" }
+          { name: "Kann", role: "Paladin - Top DPS", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" },
+          { name: "Keiron", role: "Mage - Raid MVP", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" }
         ]
       },
       {
-        title: "Battle for Azeroth (2018-2019)",
-        description: "Highlights from our heroic raids in Uldir and Ny’alotha.",
-        videoId: "https://www.youtube.com/watch?v=kcRuCa_Nixg",
+        title: "The War Within Season 1 (2025)",
+        description: "Our Mythic Queen Ansurek Kill.",
+        videoId: "kcRuCa_Nixg",
         topPlayers: [
-          { name: "Player3", role: "Paladin - Raid Leader", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" },
-          { name: "Player4", role: "Druid - Healer", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_druid.jpg" }
+          { name: "Kann", role: "Paladin - Top DPS", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" },
+          { name: "Keiron", role: "Mage - Raid MVP", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" }
         ]
       }
     ];
