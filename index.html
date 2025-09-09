@@ -113,7 +113,7 @@
             description: "Our Mythic Chrome King Gallywix Kill.",
             videoId: "PFhpKzFLdY0",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png?ex=68c1ad8d&is=68c05c0d&hm=fe48094fdf4b08569fd1b0aedb3d7642c8a08d754be11569bde2698b22bd3169&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png"
             ]
           },
           {
@@ -121,7 +121,7 @@
             description: "Our Mythic Queen Ansurek Kill.",
             videoId: "kcRuCa_Nixg",
             killScreenshots: [
-              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png?ex=68c1d0ca&is=68c07f4a&hm=51981e7beac8b5c4def0be1325c41df8386cef444dc580072e6a81cbe460e8d4&"
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png"
             ]
           }
         ]
@@ -133,12 +133,10 @@
     hallOfFameData.forEach(exp => {
       const expansionDiv = document.createElement('div');
       expansionDiv.classList.add('hof-expansion');
-
       expansionDiv.innerHTML = `
         <div class="hof-expansion-header"><h3>${exp.expansion}</h3></div>
         <div class="hof-expansion-content"></div>
       `;
-
       const contentDiv = expansionDiv.querySelector('.hof-expansion-content');
 
       exp.seasons.forEach(season => {
@@ -169,12 +167,16 @@
       hofContainer.appendChild(expansionDiv);
     });
 
-    // Collapsible logic with dynamic parent height
-    document.addEventListener('click', function(e){
+    // Smooth collapsible logic with auto-expanding parent
+    document.addEventListener('click', function(e) {
       // Expansion toggle
       if(e.target.closest('.hof-expansion-header')){
         const content = e.target.closest('.hof-expansion-header').nextElementSibling;
-        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+        if(content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
       }
 
       // Season toggle
@@ -182,17 +184,22 @@
         const seasonContent = e.target.closest('.hof-season-header').nextElementSibling;
         const expansionContent = e.target.closest('.hof-expansion-content');
 
-        // Toggle the season
         if(seasonContent.style.maxHeight){
           seasonContent.style.maxHeight = null;
         } else {
           seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
         }
 
-        // Update parent expansion max-height dynamically
-        setTimeout(() => {
-          expansionContent.style.maxHeight = expansionContent.scrollHeight + "px";
-        }, 50);
+        // Use transitionend to adjust parent expansion height
+        const adjustParent = () => {
+          expansionContent.style.maxHeight = Array.from(expansionContent.children)
+            .reduce((sum, child) => sum + child.scrollHeight, 0) + "px";
+        };
+
+        seasonContent.addEventListener('transitionend', adjustParent, { once: true });
+
+        // Trigger adjust immediately in case transition is interrupted
+        adjustParent();
       }
     });
   </script>
