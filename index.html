@@ -20,10 +20,9 @@
     </nav>
   </header>
 
-  <!-- About Us Tab (Default Homepage) -->
+  <!-- About Us Tab -->
   <div id="aboutus" class="tab-content active">
 
-    <!-- Who Are We Section -->
     <section>
       <h2>Who Are We?</h2>
       <p>
@@ -31,7 +30,6 @@
       </p>
     </section>
 
-    <!-- Raid Days / Times Section -->
     <section>
       <h3>What Days/Times We Raid</h3>
       <p>Raid times are always 19:30ST - 23:00ST.</p>
@@ -41,7 +39,6 @@
       <p>We do not do split raiding and alts are not required.</p>
     </section>
 
-    <!-- Recruitment Requirements Section -->
     <section>
       <h3>What Are We Looking For?</h3>
       <ul>
@@ -77,7 +74,7 @@
     </section>
   </div>
 
-  <!-- Hall of Fame Tab (Dynamic) -->
+  <!-- Hall of Fame Tab -->
   <div id="halloffame" class="tab-content">
     <div id="hof-container"></div>
   </div>
@@ -111,7 +108,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Dynamic Hall of Fame Data
+    // Dynamic Hall of Fame
     const hallOfFameData = [
       {
         title: "The War Within Season 2 (2025)",
@@ -133,13 +130,11 @@
       }
     ];
 
-    // Render Hall of Fame dynamically
     const hofContainer = document.getElementById('hof-container');
 
     hallOfFameData.forEach(season => {
       const section = document.createElement('section');
       section.classList.add('hof-season');
-
       section.innerHTML = `
         <h3>${season.title}</h3>
         <p>${season.description}</p>
@@ -162,7 +157,6 @@
           </iframe>
         </div>
       `;
-
       hofContainer.appendChild(section);
     });
   </script>
