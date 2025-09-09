@@ -15,12 +15,12 @@ header nav a:hover { color:#ffd700; }
 /* About Us */
 #aboutus { position:relative; }
 #aboutus::before {
-  content:""; background:url('https://i.imgur.com/qh9sYlS.png') no-repeat center center; background-size:200px auto;
+  content:""; background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center; background-size:200px auto;
   opacity:0.05; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200px; height:200px; pointer-events:none; z-index:0;
 }
 #aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#ffd700; margin-bottom:20px; text-align:center; text-shadow:1px1px3px #000; position:relative; z-index:1; }
 #aboutus h3 { font-size:1.8rem; color:#ffa500; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #ffd700; padding-bottom:5px; position:relative; z-index:1; }
-#aboutus h3::before { content:url('https://i.imgur.com/7S7iJbE.png'); display:inline-block; margin-right:10px; vertical-align:middle; }
+#aboutus h3::before { content:url('https://i.imgur.com/qmxZVno.png'); display:inline-block; margin-right:10px; vertical-align:middle; }
 #aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; }
 #aboutus ul { list-style:disc; margin-left:30px; margin-bottom:20px; position:relative; z-index:1; }
 #aboutus ul li { font-size:1.1rem; margin-bottom:10px; }
