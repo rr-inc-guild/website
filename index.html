@@ -108,7 +108,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Dynamic Hall of Fame Data with Expansions and Seasons
+    // Hall of Fame with expansions and seasons
     const hallOfFameData = [
       {
         expansion: "The War Within",
@@ -174,15 +174,27 @@
       hofContainer.appendChild(expansionDiv);
     });
 
-    // Collapsible logic
+    // Collapsible logic with dynamic parent height
     document.addEventListener('click', function(e){
+      // Expansion toggle
       if(e.target.closest('.hof-expansion-header')){
         const content = e.target.closest('.hof-expansion-header').nextElementSibling;
         content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
       }
+
+      // Season toggle
       if(e.target.closest('.hof-season-header')){
-        const content = e.target.closest('.hof-season-header').nextElementSibling;
-        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+        const seasonContent = e.target.closest('.hof-season-header').nextElementSibling;
+        const expansionContent = e.target.closest('.hof-expansion-content');
+
+        if(seasonContent.style.maxHeight){
+          seasonContent.style.maxHeight = null;
+        } else {
+          seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
+        }
+
+        // Update parent expansion dynamically
+        expansionContent.style.maxHeight = expansionContent.scrollHeight + "px";
       }
     });
   </script>
