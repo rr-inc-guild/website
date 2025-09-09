@@ -5,48 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Guild Name</title>
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background-color: #0d0d0d; color: #f5f5f5; }
-
-    /* Header & Nav */
-    header { background-color: #1a1a1a; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-family: 'MedievalSharp', cursive; color: #f0c040; }
-    nav a { color: #f5f5f5; text-decoration: none; margin-left: 20px; font-weight: bold; }
-    nav a:hover { color: #f0c040; }
-
-    /* Tabs container */
-    .tab-content { display: none; padding: 40px; max-width: 1000px; margin: auto; }
-    .tab-content.active { display: block; }
-
-    /* Hero Banner */
-    .hero { background: url('https://wow.zamimg.com/images/wow/icons/large/ability_warrior_innerrage.jpg') center/cover no-repeat; text-align: center; padding: 80px 20px; border-radius: 10px; }
-    .hero h2 { font-size: 3rem; margin-bottom: 20px; color: #f0c040; text-shadow: 2px 2px 8px #000; }
-    .hero p { font-size: 1.2rem; margin-bottom: 20px; text-shadow: 1px 1px 4px #000; }
-    .hero button { background-color: #f0c040; color: #0d0d0d; border: none; padding: 15px 30px; font-size: 1rem; cursor: pointer; border-radius: 5px; }
-    .hero button:hover { background-color: #d1a020; }
-
-    /* Sections */
-    section { margin-bottom: 40px; }
-    h3 { color: #f0c040; margin-bottom: 15px; }
-    p, li { line-height: 1.6; }
-    ul { list-style: disc inside; margin-bottom: 20px; }
-
-    /* Forms */
-    form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; }
-    input, textarea { padding: 10px; border-radius: 5px; border: none; }
-    button.submit-btn { background-color: #f0c040; color: #0d0d0d; padding: 12px; border: none; border-radius: 5px; cursor: pointer; }
-    button.submit-btn:hover { background-color: #d1a020; }
-
-    /* Hall of Fame Grid */
-    .hof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .hof-card { background-color: #1a1a1a; padding: 20px; border-radius: 10px; text-align: center; }
-    .hof-card img { width: 100px; border-radius: 50%; margin-bottom: 10px; }
-
-    /* Footer */
-    footer { text-align: center; padding: 20px; background-color: #1a1a1a; margin-top: 40px; font-size: 0.9rem; color: #888; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -97,13 +56,11 @@
 
   <!-- Hall of Fame Tab -->
   <div id="halloffame" class="tab-content">
-    <section>
-      <h3>Raid Progression</h3>
-      <p>Example: Castle Nathria - 10/10 Heroic, Sanctum of Domination - 11/11 Mythic</p>
-    </section>
 
-    <section>
-      <h3>Top Players</h3>
+    <!-- Shadowlands Section -->
+    <section class="hof-season">
+      <h3>Shadowlands (2020-2021)</h3>
+      <p>Our guild achieved cutting-edge progression in Castle Nathria and Sanctum of Domination.</p>
       <div class="hof-grid">
         <div class="hof-card">
           <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_warrior.jpg" alt="Player1">
@@ -116,7 +73,40 @@
           <p>Mage - Raid MVP</p>
         </div>
       </div>
+      <div class="hof-video">
+        <h4>Season Highlights</h4>
+        <video controls width="100%" style="border-radius:10px; margin-top:10px;">
+          <source src="videos/shadowlands-highlights.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </section>
+
+    <!-- Battle for Azeroth Section -->
+    <section class="hof-season">
+      <h3>Battle for Azeroth (2018-2019)</h3>
+      <p>Highlights from our heroic raids in Uldir and Ny’alotha.</p>
+      <div class="hof-grid">
+        <div class="hof-card">
+          <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" alt="Player3">
+          <h4>Player3</h4>
+          <p>Paladin - Raid Leader</p>
+        </div>
+        <div class="hof-card">
+          <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_druid.jpg" alt="Player4">
+          <h4>Player4</h4>
+          <p>Druid - Healer</p>
+        </div>
+      </div>
+      <div class="hof-video">
+        <h4>Season Highlights</h4>
+        <video controls width="100%" style="border-radius:10px; margin-top:10px;">
+          <source src="videos/bfa-highlights.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
   </div>
 
   <!-- Contact Tab -->
