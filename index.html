@@ -22,6 +22,7 @@
 
   <!-- About Us Tab -->
   <div id="aboutus" class="tab-content active">
+
     <section>
       <h2>Who Are We?</h2>
       <p>
@@ -50,6 +51,7 @@
         <li><strong>Gear Requirements.</strong> Gear is required to raid at a certain level, but we also realize that you need to raid in order to get the best gear. Therefore we don't require you to have best in slot, but successful applicants will have made every effort to maximize their gear depending on what is/has been available to them.</li>
       </ul>
     </section>
+
   </div>
 
   <!-- Recruitment Tab -->
@@ -106,7 +108,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Dynamic Hall of Fame Data (organized by expansions)
+    // Dynamic Hall of Fame Data with Expansions and Seasons
     const hallOfFameData = [
       {
         expansion: "The War Within",
@@ -115,13 +117,17 @@
             title: "Season 2 (2025)",
             description: "Our Mythic Chrome King Gallywix Kill.",
             videoId: "PFhpKzFLdY0",
-            killScreenshots: ["https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png"]
+            killScreenshots: [
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1379141434699153518/23.png"
+            ]
           },
           {
             title: "Season 1 (2025)",
             description: "Our Mythic Queen Ansurek Kill.",
             videoId: "kcRuCa_Nixg",
-            killScreenshots: ["https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png"]
+            killScreenshots: [
+              "https://cdn.discordapp.com/attachments/1330934781017591839/1330981684429983764/22.png"
+            ]
           }
         ]
       }
@@ -130,71 +136,54 @@
     const hofContainer = document.getElementById('hof-container');
 
     hallOfFameData.forEach(exp => {
-      const expSection = document.createElement('div');
-      expSection.classList.add('hof-expansion');
-      
-      const expHeader = document.createElement('div');
-      expHeader.classList.add('hof-expansion-header');
-      expHeader.innerHTML = `<h3>${exp.expansion}</h3>`;
-      
-      const expContent = document.createElement('div');
-      expContent.classList.add('hof-expansion-content');
+      const expansionDiv = document.createElement('div');
+      expansionDiv.classList.add('hof-expansion');
+
+      expansionDiv.innerHTML = `
+        <div class="hof-expansion-header"><h3>${exp.expansion}</h3></div>
+        <div class="hof-expansion-content"></div>
+      `;
+
+      const contentDiv = expansionDiv.querySelector('.hof-expansion-content');
 
       exp.seasons.forEach(season => {
-        const seasonSection = document.createElement('div');
-        seasonSection.classList.add('hof-season');
-
-        const seasonHeader = document.createElement('div');
-        seasonHeader.classList.add('hof-season-header');
-        seasonHeader.innerHTML = `<h4>${season.title}</h4>`;
-
-        const seasonContent = document.createElement('div');
-        seasonContent.classList.add('hof-season-content');
-        seasonContent.innerHTML = `
-          <p>${season.description}</p>
-          <div class="hof-kills">
-            <h5>Kill Screenshots</h5>
-            <img src="${season.killScreenshots[0]}" alt="Kill Screenshot" style="width:100%; max-width:100%; border-radius:10px; margin-bottom:10px;">
-          </div>
-          <div class="hof-video">
-            <h5>Season Highlights</h5>
-            <iframe width="100%" height="480" 
-              src="https://www.youtube.com/embed/${season.videoId}" 
-              title="${season.title} Highlights" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-              style="border-radius:10px; margin-top:10px;">
-            </iframe>
+        const seasonDiv = document.createElement('div');
+        seasonDiv.classList.add('hof-season');
+        seasonDiv.innerHTML = `
+          <div class="hof-season-header"><h4>${season.title}</h4></div>
+          <div class="hof-season-content">
+            <p>${season.description}</p>
+            <div class="hof-kills">
+              <h5>Kill Screenshots</h5>
+              ${season.killScreenshots.map(url => `<img src="${url}" style="width:100%; border-radius:10px; margin-bottom:10px;">`).join('')}
+            </div>
+            <div class="hof-video">
+              <h5>Season Highlights</h5>
+              <iframe width="100%" height="480" 
+                src="https://www.youtube.com/embed/${season.videoId}" 
+                title="${season.title} Highlights" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                style="border-radius:10px; margin-top:10px;">
+              </iframe>
+            </div>
           </div>
         `;
-
-        seasonHeader.addEventListener('click', () => {
-          seasonHeader.classList.toggle('active');
-          if(seasonContent.style.maxHeight){
-            seasonContent.style.maxHeight = null;
-          } else {
-            seasonContent.style.maxHeight = seasonContent.scrollHeight + "px";
-          }
-          // update parent height
-          expContent.style.maxHeight = expContent.scrollHeight + "px";
-        });
-
-        seasonSection.appendChild(seasonHeader);
-        seasonSection.appendChild(seasonContent);
-        expContent.appendChild(seasonSection);
+        contentDiv.appendChild(seasonDiv);
       });
 
-      expHeader.addEventListener('click', () => {
-        expHeader.classList.toggle('active');
-        if(expContent.style.maxHeight){
-          expContent.style.maxHeight = null;
-        } else {
-          expContent.style.maxHeight = expContent.scrollHeight + "px";
-        }
-      });
+      hofContainer.appendChild(expansionDiv);
+    });
 
-      expSection.appendChild(expHeader);
-      expSection.appendChild(expContent);
-      hofContainer.appendChild(expSection);
+    // Collapsible logic
+    document.addEventListener('click', function(e){
+      if(e.target.closest('.hof-expansion-header')){
+        const content = e.target.closest('.hof-expansion-header').nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+      }
+      if(e.target.closest('.hof-season-header')){
+        const content = e.target.closest('.hof-season-header').nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+      }
     });
   </script>
 
