@@ -5,7 +5,7 @@ body { font-family: 'Roboto', sans-serif; background-color:#1a1a1a; color:#f5f5f
 /* Header */
 header { background:#111; padding:20px; text-align:center; border-bottom:2px solid #ffd700; }
 header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#ffd700; }
-header nav a { color:#f5f5f5; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; }
+header nav a { color:#f5f5f5; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
 header nav a:hover { color:#ffd700; }
 
 /* Tabs */
@@ -35,20 +35,19 @@ header nav a:hover { color:#ffd700; }
 
 /* Hall of Fame */
 .hof-expansion { border:2px solid #ffd700; border-radius:10px; margin-bottom:20px; overflow:hidden; }
-.hof-expansion-header { background:#222; padding:15px; cursor:pointer; transition:background 0.3s; }
-.hof-expansion-header h3 { margin:0; color:#ffd700; }
+.hof-expansion-header { background:#222; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-expansion-header:hover { background:#333; }
+.hof-expansion-header h3 { margin:0; color:#ffd700; }
 .hof-expansion-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 15px; }
 
-.hof-season { border:1px solid #ffa500; border-radius:8px; margin:10px 0; overflow:hidden; }
-.hof-season-header { background:#333; padding:10px; cursor:pointer; transition:background 0.3s; }
-.hof-season-header h4 { margin:0; color:#ffa500; }
+.hof-season { border:1px solid #ffa500; border-radius:8px; margin:15px 0; overflow:hidden; }
+.hof-season-header { background:#333; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-season-header:hover { background:#444; }
+.hof-season-header h4 { margin:0; color:#ffa500; }
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
 
-.hof-kills { margin:10px 0; }
-.hof-kills h5, .hof-video h5 { margin-bottom:5px; color:#ffd700; }
-.hof-video { margin:10px 0; }
+.hof-kills img { border-radius:10px; margin-bottom:10px; width:100%; display:block; }
+.hof-video iframe { border-radius:10px; margin-top:10px; }
 
 /* Footer */
 footer { text-align:center; padding:20px; border-top:2px solid #ffd700; margin-top:40px; }
@@ -60,5 +59,4 @@ footer { text-align:center; padding:20px; border-top:2px solid #ffd700; margin-t
   #aboutus h3{ font-size:1.5rem; }
   #aboutus p, #aboutus ul li{ font-size:1rem; }
   #aboutus::before{ width:150px; height:150px; }
-  .hof-video iframe { height:300px; }
 }
