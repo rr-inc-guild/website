@@ -54,59 +54,9 @@
     </section>
   </div>
 
-  <!-- Hall of Fame Tab -->
+  <!-- Hall of Fame Tab (Dynamic) -->
   <div id="halloffame" class="tab-content">
-
-    <!-- Shadowlands Section -->
-    <section class="hof-season">
-      <h3>Shadowlands (2020-2021)</h3>
-      <p>Our guild achieved cutting-edge progression in Castle Nathria and Sanctum of Domination.</p>
-      <div class="hof-grid">
-        <div class="hof-card">
-          <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_warrior.jpg" alt="Player1">
-          <h4>Player1</h4>
-          <p>Warrior - Top DPS</p>
-        </div>
-        <div class="hof-card">
-          <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" alt="Player2">
-          <h4>Player2</h4>
-          <p>Mage - Raid MVP</p>
-        </div>
-      </div>
-      <div class="hof-video">
-        <h4>Season Highlights</h4>
-        <iframe width="100%" height="480" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" 
-                title="Shadowlands Highlights" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
-                style="border-radius:10px; margin-top:10px;"></iframe>
-      </div>
-    </section>
-
-    <!-- Battle for Azeroth Section -->
-    <section class="hof-season">
-      <h3>Battle for Azeroth (2018-2019)</h3>
-      <p>Highlights from our heroic raids in Uldir and Ny’alotha.</p>
-      <div class="hof-grid">
-        <div class="hof-card">
-          <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" alt="Player3">
-          <h4>Player3</h4>
-          <p>Paladin - Raid Leader</p>
-        </div>
-        <div class="hof-card">
-          <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_druid.jpg" alt="Player4">
-          <h4>Player4</h4>
-          <p>Druid - Healer</p>
-        </div>
-      </div>
-      <div class="hof-video">
-        <h4>Season Highlights</h4>
-        <iframe width="100%" height="480" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" 
-                title="BFA Highlights" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                style="border-radius:10px; margin-top:10px;"></iframe>
-      </div>
-    </section>
-
+    <div id="hof-container"></div>
   </div>
 
   <!-- Contact Tab -->
@@ -132,10 +82,66 @@
   </footer>
 
   <script>
+    // Tab switching
     function showTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
     }
+
+    // Dynamic Hall of Fame Data
+    const hallOfFameData = [
+      {
+        title: "Shadowlands (2020-2021)",
+        description: "Our guild achieved cutting-edge progression in Castle Nathria and Sanctum of Domination.",
+        videoId: "https://www.youtube.com/watch?v=PFhpKzFLdY0",
+        topPlayers: [
+          { name: "Player1", role: "Warrior - Top DPS", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_warrior.jpg" },
+          { name: "Player2", role: "Mage - Raid MVP", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_mage.jpg" }
+        ]
+      },
+      {
+        title: "Battle for Azeroth (2018-2019)",
+        description: "Highlights from our heroic raids in Uldir and Ny’alotha.",
+        videoId: "https://www.youtube.com/watch?v=kcRuCa_Nixg",
+        topPlayers: [
+          { name: "Player3", role: "Paladin - Raid Leader", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_paladin.jpg" },
+          { name: "Player4", role: "Druid - Healer", img: "https://wow.zamimg.com/images/wow/icons/medium/classicon_druid.jpg" }
+        ]
+      }
+    ];
+
+    // Render Hall of Fame dynamically
+    const hofContainer = document.getElementById('hof-container');
+
+    hallOfFameData.forEach(season => {
+      const section = document.createElement('section');
+      section.classList.add('hof-season');
+
+      section.innerHTML = `
+        <h3>${season.title}</h3>
+        <p>${season.description}</p>
+        <div class="hof-grid">
+          ${season.topPlayers.map(player => `
+            <div class="hof-card">
+              <img src="${player.img}" alt="${player.name}">
+              <h4>${player.name}</h4>
+              <p>${player.role}</p>
+            </div>
+          `).join('')}
+        </div>
+        <div class="hof-video">
+          <h4>Season Highlights</h4>
+          <iframe width="100%" height="480" 
+            src="https://www.youtube.com/embed/${season.videoId}" 
+            title="${season.title} Highlights" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+            style="border-radius:10px; margin-top:10px;">
+          </iframe>
+        </div>
+      `;
+
+      hofContainer.appendChild(section);
+    });
   </script>
 
 </body>
