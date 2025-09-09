@@ -1,56 +1,154 @@
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Roboto', sans-serif; background-color:#1a1a1a; color:#f5f5f5; }
-
-/* Header */
-header { background:#111; padding:20px; text-align:center; border-bottom:2px solid #ffd700; }
-header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#ffd700; }
-header nav a { color:#f5f5f5; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
-header nav a:hover { color:#ffd700; }
-
-/* Tabs */
-.tab-content { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; }
-.tab-content.active { display:block; }
-
-/* About Us */
-#aboutus { position:relative; }
-#aboutus::before {
-  content:""; background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center; background-size:200px auto;
-  opacity:0.05; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200px; height:200px; pointer-events:none; z-index:0;
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #333;
 }
-#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#ffd700; margin-bottom:20px; text-align:center; text-shadow:1px1px3px #000; position:relative; z-index:1; }
-#aboutus h3 { font-size:1.8rem; color:#ffa500; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #ffd700; padding-bottom:5px; position:relative; z-index:1; }
-#aboutus h3::before { content:url('https://i.imgur.com/qmxZVno.png'); display:inline-block; margin-right:10px; vertical-align:middle; }
-#aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; }
-#aboutus ul { list-style:disc; margin-left:30px; margin-bottom:20px; position:relative; z-index:1; }
-#aboutus ul li { font-size:1.1rem; margin-bottom:10px; }
-#aboutus ul li strong { color:#ffd700; }
-#aboutus section + section { border-top:1px solid #ffd700; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
 
-/* Recruitment */
-#recruitment .hero { text-align:center; margin-bottom:30px; }
-#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#ffd700; }
-#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:none; font-size:1rem; }
-.submit-btn { background:#ffd700; color:#111; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
-.submit-btn:hover { background:#ffa500; }
+header {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-/* Hall of Fame */
-.hof-expansion, .hof-season { margin-bottom:15px; border:2px solid #ffd700; border-radius:10px; overflow:hidden; }
-.hof-expansion-header, .hof-season-header { background:#222; padding:10px 15px; cursor:pointer; }
-.hof-expansion-header h3, .hof-season-header h4 { margin:0; color:#ffd700; }
-.hof-expansion-content, .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 15px; background:#111; }
-.hof-season-content { padding:15px; }
-.hof-kills img { display:block; width:100%; margin-bottom:10px; border-radius:10px; }
-.hof-video iframe { width:100%; border-radius:10px; margin-top:10px; }
+header h1 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 28px;
+  margin: 0;
+}
+
+header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px 30px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Application Form & Buttons */
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
+/* Hall of Fame Styles */
+#hof-container {
+  padding: 10px 0;
+}
+
+.hof-expansion {
+  margin-bottom: 15px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.hof-expansion-header {
+  background-color: #e2e2e2;
+  cursor: pointer;
+  padding: 12px 20px;
+  user-select: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.hof-expansion-header:hover {
+  background-color: #d0d0d0;
+}
+
+.hof-expansion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 20px;
+}
+
+/* Season Styles */
+.hof-season {
+  margin-top: 10px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.hof-season-header {
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #ddd;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.hof-season-header:hover {
+  background-color: #ccc;
+}
+
+.hof-season-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 15px;
+}
+
+/* Kill Screenshots & Video */
+.hof-kills img,
+.hof-video iframe {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Additional Styling for Headings */
+.hof-kills h5,
+.hof-video h5 {
+  margin: 10px 0 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 /* Footer */
-footer { text-align:center; padding:20px; border-top:2px solid #ffd700; margin-top:40px; }
-
-/* Responsive */
-@media screen and (max-width:768px){
-  header nav a{ display:block; margin:10px 0; }
-  #aboutus h2{ font-size:2rem; }
-  #aboutus h3{ font-size:1.5rem; }
-  #aboutus p, #aboutus ul li{ font-size:1rem; }
-  #aboutus::before{ width:150px; height:150px; }
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
 }
