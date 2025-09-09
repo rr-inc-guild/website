@@ -35,11 +35,46 @@ header nav a:hover { color:#ffd700; }
 .submit-btn:hover { background:#ffa500; }
 
 /* Hall of Fame */
-.hof-header { background:#222; padding:10px; border-radius:8px; margin-bottom:5px; color:#ffd700; }
-.hof-content { background:#111; padding:15px; border-radius:8px; margin-bottom:20px; }
-.hof-kills-grid { display:flex; flex-direction:column; gap:10px; }
-.hof-kill img { width:100%; height:480px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
-.hof-video iframe { border-radius:10px; }
+.hof-season {
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background:#111;
+}
+.hof-header {
+  background:#222;
+  padding:15px 20px;
+  color:#ffd700;
+  font-size:1.5rem;
+  font-weight:bold;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  user-select:none;
+  transition: background 0.3s;
+}
+.hof-header:hover { background:#333; }
+.hof-header::after {
+  content: "▼";
+  font-size:1rem;
+  transition: transform 0.3s;
+}
+.hof-header.active::after { transform: rotate(-180deg); }
+
+.hof-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0 20px;
+}
+.hof-content.open { padding:15px 20px; }
+
+.hof-kills-grid { display:flex; flex-direction:column; gap:10px; margin-bottom:15px; }
+.hof-kill img { width:100%; height:480px; object-fit:cover; border-radius:10px; }
+
+.hof-video iframe { width:100%; height:480px; border-radius:10px; }
 
 /* Footer */
 footer { text-align:center; padding:20px; border-top:2px solid #ffd700; margin-top:40px; }
@@ -47,9 +82,5 @@ footer { text-align:center; padding:20px; border-top:2px solid #ffd700; margin-t
 /* Responsive */
 @media screen and (max-width:768px){
   header nav a{ display:block; margin:10px 0; }
-  #aboutus h2{ font-size:2rem; }
-  #aboutus h3{ font-size:1.5rem; }
-  #aboutus p, #aboutus ul li{ font-size:1rem; }
-  #aboutus::before{ width:150px; height:150px; }
   .hof-kill img, .hof-video iframe { height:250px; }
 }
