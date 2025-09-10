@@ -7,17 +7,29 @@ header { background:#161b22; padding:20px; text-align:center; border-bottom:2px 
 .header-inner { position:relative; }
 .site-logo { position:absolute; top:10px; left:20px; height:50px; width:auto; }
 header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; margin:0; }
-header nav a { color:#c9d1d9; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
-header nav a:hover { color:#58a6ff; }
+
+/* Header Navigation */
+header nav a {
+  color:#c9d1d9;
+  margin:0 15px;
+  text-decoration:none;
+  font-size:1.1rem;
+  transition:color 0.3s, background 0.3s;
+  cursor:pointer;
+  padding:6px 14px;       /* consistent padding */
+  border-radius:20px;     /* consistent radius */
+  display:inline-block;   /* keeps pill shape */
+}
+
+header nav a:hover {
+  color:#58a6ff;
+}
 
 /* Active nav tab */
 header nav a.active {
-  color: #fff;
-  font-weight: bold;
-  background: #1f6feb;
-  border-radius: 20px;
-  padding: 6px 14px;
-  transition: background 0.3s, color 0.3s;
+  color:#fff;
+  font-weight:bold;
+  background:#1f6feb;
 }
 
 /* Tabs */
@@ -39,51 +51,11 @@ header nav a.active {
 #aboutus section + section { border-top:1px solid #58a6ff; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
 
 /* Recruitment */
-#recruitment .hero { 
-  text-align:center; 
-  margin-bottom:30px; 
-  background:#21262d; 
-  padding:30px; 
-  border-radius:10px; 
-  border:1px solid #30363d;
-}
-#recruitment .hero h2 { 
-  font-family:'MedievalSharp', cursive; 
-  font-size:2rem; 
-  color:#58a6ff; 
-}
-
-.recruitment-info {
-  background:#21262d;
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:20px;
-  font-size:1rem;
-  color:#c9d1d9;
-  border:1px solid #30363d;
-}
-
-.recruitment-info a {
-  color:#58a6ff;
-  text-decoration:underline;
-}
-.recruitment-info a:hover {
-  color:#1f6feb;
-}
-
-#recruitment section h3 {
-  font-size:1.5rem;
-  color:#58a6ff;
-  margin-bottom:15px;
-  border-bottom:1px solid #30363d;
-  padding-bottom:5px;
-}
-
-#recruitment iframe {
-  border-radius:10px;
-  border:1px solid #30363d;
-  background:#0d1117;
-}
+#recruitment .hero { text-align:center; margin-bottom:30px; background:#21262d; padding:30px; border-radius:10px; }
+#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#58a6ff; }
+#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #30363d; font-size:1rem; background:#0d1117; color:#c9d1d9; }
+.submit-btn { background:#238636; color:#fff; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
+.submit-btn:hover { background:#2ea043; }
 
 /* Hall of Fame */
 .hof-expansion { border:2px solid #30363d; border-radius:10px; margin-bottom:20px; overflow:hidden; }
@@ -106,7 +78,25 @@ header nav a.active {
 /* Footer */
 footer { text-align:center; padding:20px; border-top:2px solid #58a6ff; margin-top:40px; background:#161b22; }
 
-/* Header icons */
+.recruitment-info {
+  background:#21262d;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+  font-size:1rem;
+  color:#c9d1d9;
+  border:1px solid #30363d;
+}
+
+.recruitment-info a {
+  color:#58a6ff;
+  text-decoration:underline;
+}
+
+.recruitment-info a:hover {
+  color:#1f6feb;
+}
+
 .header-icons {
   position: absolute;
   top: 20px;
@@ -114,11 +104,13 @@ footer { text-align:center; padding:20px; border-top:2px solid #58a6ff; margin-t
   display: flex;
   gap: 10px;
 }
+
 .header-icon {
   height: 32px;
   width: 32px;
   transition: transform 0.3s;
 }
+
 .header-icon:hover {
   transform: scale(1.1);
 }
