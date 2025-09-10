@@ -12,9 +12,12 @@ header nav a:hover { color:#58a6ff; }
 
 /* Active nav tab */
 header nav a.active {
-  color: #58a6ff;
+  color: #fff;
   font-weight: bold;
-  border-bottom: 2px solid #58a6ff;
+  background: #1f6feb;
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Tabs */
