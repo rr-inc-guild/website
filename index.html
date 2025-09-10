@@ -10,35 +10,17 @@
 <body>
 
   <!-- Header -->
-<header>
-  <div class="header-inner">
-    <!-- Clickable RR Inc Logo -->
-    <a href="https://worldofwarcraft.blizzard.com/en-gb/guild/eu/ravenholdt/rr-inc" target="_blank" rel="noopener noreferrer">
+  <header>
+    <div class="header-inner">
       <img src="./logo-realm.png" alt="RR Inc Logo" class="site-logo">
-    </a>
-    <h1>RR Inc</h1>
-
-    <!-- Top-right icons -->
-    <div class="header-icons">
-      <a href="https://raider.io/guilds/eu/ravenholdt/RR%20Inc" target="_blank" rel="noopener noreferrer">
-        <img src="./raiderio.ico" alt="Raider.io" class="header-icon">
-      </a>
-      <a href="https://www.wowprogress.com/guild/eu/ravenholdt/RR+Inc" target="_blank" rel="noopener noreferrer">
-        <img src="./wowprogress.png" alt="WoWProgress" class="header-icon">
-      </a>
-      <a href="https://www.warcraftlogs.com/guild/eu/ravenholdt/rr%20inc" target="_blank" rel="noopener noreferrer">
-        <img src="./warcraftlogs.png" alt="WarcraftLogs" class="header-icon">
-      </a>
+      <h1>RR Inc</h1>
     </div>
-  </div>
-  <nav>
-    <a href="#" onclick="showTab('aboutus')" class="active">About Us</a>
-    <a href="#" onclick="showTab('recruitment')">Recruitment</a>
-    <a href="#" onclick="showTab('halloffame')">Kills History</a>
-  </nav>
-</header>
-
-
+    <nav>
+      <a href="#" onclick="showTab('aboutus')" class="active">About Us</a>
+      <a href="#" onclick="showTab('recruitment')">Recruitment</a>
+      <a href="#" onclick="showTab('halloffame')">Kills History</a>
+    </nav>
+  </header>
 
   <!-- About Us Tab -->
   <div id="aboutus" class="tab-content active">
@@ -70,34 +52,25 @@
     </section>
   </div>
 
-<!-- Recruitment Tab -->
-<div id="recruitment" class="tab-content">
-<div class="hero">
-  <h2>Join Our Guild</h2>
-  <br></br>
-  <section class="recruitment-info">
-    <p>
-      <b>Please note</b>: recruitment may not always be open. You can check our current status on 
-      <a href="https://raider.io/guilds/eu/ravenholdt/RR%20Inc/recruitment" target="_blank" rel="noopener noreferrer">Raider.io</a>.  
-      If you consider yourself an exceptional player, feel free to reach out and we will get back to you.
-    </p>
-  </section>
-</div>
-  <section>
-    <h3>Application Form</h3>
-    <!-- Replace this iframe src with your Google Form embed link -->
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSeNuZYMojiDAGUyYToVkX5eLY2u0AXA-Bt-RhsHYuBNXaNxWA/viewform?embedded=true" 
-      width="100%" 
-      height="1000" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0">
-      Loading…
-    </iframe>
-  </section>
-</div>
-
+  <!-- Recruitment Tab -->
+  <div id="recruitment" class="tab-content">
+    <div class="hero">
+      <h2>Join Our Guild</h2>
+      <p>Cutting-edge progression, fun community, epic raids!</p>
+    </div>
+    <section>
+      <h3>Recruitment Information</h3>
+      <p>
+        Whilst there may be times when we are not actively recruiting, you can always check our current recruitment status on 
+        <a href="https://raider.io/guilds/eu/ravenholdt/RR%20Inc/recruitment" target="_blank">Raider.IO</a>.  
+        However, if you consider yourself an exceptional player, feel free to reach out — we are always open to strong candidates and will get back to you.
+      </p>
+    </section>
+    <section>
+      <h3>Application Form</h3>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdeMC4c0b7gXzdzZt3Uf_jZbWzFkAe3djQd59QwVBlT5MSmVQ/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
+  </div>
 
   <!-- Hall of Fame Tab -->
   <div id="halloffame" class="tab-content">
@@ -112,23 +85,94 @@
   <script>
     // Tab switching
     function showTab(tabId) {
-      // Hide all tab content
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-
-      // Show the selected tab
-      document.getElementById(tabId).classList.add('active');
-
-      // Reset all nav links
       document.querySelectorAll('header nav a').forEach(link => link.classList.remove('active'));
-
-      // Highlight the clicked nav link
-      const activeLink = Array.from(document.querySelectorAll('header nav a'))
-        .find(link => link.getAttribute('onclick').includes(tabId));
-      if (activeLink) activeLink.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
     }
 
-    // Hall of Fame data (unchanged)
-    const hallOfFameData = [/* your data remains unchanged */];
+    // Hall of Fame data
+    const hallOfFameData = [
+      {
+        expansion: "The War Within (2025 - 2026)",
+        seasons: [
+          {
+            title: "Season 2 - Liberation of Undermine",
+            description: "Our Mythic Chrome King Gallywix Kill",
+            videoId: "PFhpKzFLdY0",
+            killScreenshots: [
+              "./kill_screenshots/the_war_within/gallywix.png"
+            ]
+          },
+          {
+            title: "Season 1 - Nerub-ar Palace",
+            description: "Our Mythic Queen Ansurek Kill",
+            videoId: "kcRuCa_Nixg",
+            killScreenshots: [
+              "./kill_screenshots/the_war_within/ansurek.png"
+            ]
+          }
+        ]
+      },
+      {
+        expansion: "Dragonflight (2023 - 2024)",
+        seasons: [
+          {
+            title: "Season 3 - Amirdrassil, the Dream's Hope.",
+            description: "Our Mythic Fyrakk the Blazing kill",
+            videoId: "dJeSQj6FZx8",
+            killScreenshots: [
+              "./kill_screenshots/dragonflight/fyrakk.jpg"
+            ]
+          },
+          {
+            title: "Season 2 - Aberrus, the Shadowed Crucible.",
+            description: "Our Mythic Scalecommander Sarkareth kill",
+            videoId: null,
+            killScreenshots: [
+              "./kill_screenshots/dragonflight/sarkareth.jpg"
+            ]
+          },
+          {
+            title: "Season 1 - Vault of the Incarnates",
+            description: "Our Raszageth the Storm-Eater kill",
+            videoId: "KD_0GajtGT4",
+            killScreenshots: [
+              "./kill_screenshots/dragonflight/raszageth.png"
+            ]
+          }
+        ]
+      },
+      {
+        expansion: "Shadowlands (2021 - 2022)",
+        seasons: [
+          {
+            title: "Season 3 - Sepulcher of the First Ones.",
+            description: "Our Mythic Jailer kill",
+            videoId: "qT2MJXT0WIA",
+            killScreenshots: [
+              "./kill_screenshots/shadowlands/jailer.jpg"
+            ]
+          },
+          {
+            title: "Season 2 - Sanctum of Domination.",
+            description: "Our Mythic Sylvanas Windrunner kill",
+            videoId: "K_OVVVdyXpw",
+            killScreenshots: [
+              "./kill_screenshots/shadowlands/sylvanas.jpg"
+            ]
+          },
+          {
+            title: "Season 1 - Castle Nathria.",
+            description: "Our Mythic Sire Denathrius kill",
+            videoId: "gQYuEKEQlXY",
+            killScreenshots: [
+              "./kill_screenshots/shadowlands/denathrius.jpg"
+            ]
+          }
+        ]
+      }
+    ];
 
     const hofContainer = document.getElementById('hof-container');
 
