@@ -1,14 +1,45 @@
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Roboto', sans-serif; background-color:#0d1117; color:#c9d1d9; }
+body { font-family: 'Roboto', sans-serif; background-color:#0d1117; color:#cfd8f1; }
 
 /* Header */
-header { background:#161b22; padding:20px; text-align:center; border-bottom:2px solid #58a6ff; position:relative; }
-.header-inner { position:relative; }
-.site-logo { position:absolute; top:10px; left:20px; height:50px; width:auto; }
-header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; margin:0; }
-header nav a { color:#c9d1d9; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
-header nav a:hover { color:#58a6ff; }
+header {
+  display: flex;
+  align-items: center;
+  background:#111;
+  padding:15px 20px;
+  border-bottom:2px solid #3a5ca8;
+  position: relative;
+}
+.site-logo {
+  height:50px;
+  width:50px;
+  object-fit:contain;
+  position: absolute;
+  top:10px;
+  left:10px;
+}
+.header-inner {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  margin-left:70px; /* to offset logo */
+  align-items: center;
+}
+header h1 {
+  font-family:'MedievalSharp', cursive;
+  font-size:2.2rem;
+  color:#3a5ca8;
+}
+header nav a {
+  color:#cfd8f1;
+  margin:0 15px;
+  text-decoration:none;
+  font-size:1.1rem;
+  transition: color 0.3s;
+  cursor:pointer;
+}
+header nav a:hover { color:#6fa1ff; }
 
 /* Tabs */
 .tab-content { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; }
@@ -17,51 +48,60 @@ header nav a:hover { color:#58a6ff; }
 /* About Us */
 #aboutus { position:relative; }
 #aboutus::before {
-  content:""; background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center; background-size:200px auto;
-  opacity:0.05; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200px; height:200px; pointer-events:none; z-index:0;
+  content:"";
+  background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center;
+  background-size:200px auto;
+  opacity:0.03;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:200px;
+  height:200px;
+  pointer-events:none;
+  z-index:0;
 }
-#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; margin-bottom:20px; text-align:center; text-shadow:1px 1px 3px #000; position:relative; z-index:1; }
-#aboutus h3 { font-size:1.8rem; color:#1f6feb; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #58a6ff; padding-bottom:5px; position:relative; z-index:1; }
+#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#3a5ca8; margin-bottom:20px; text-align:center; text-shadow:1px1px3px #000; position:relative; z-index:1; }
+#aboutus h3 { font-size:1.5rem; color:#6fa1ff; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #3a5ca8; padding-bottom:5px; position:relative; z-index:1; }
 #aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; }
 #aboutus ul { list-style:disc; margin-left:30px; margin-bottom:20px; position:relative; z-index:1; }
 #aboutus ul li { font-size:1.1rem; margin-bottom:10px; }
-#aboutus ul li strong { color:#58a6ff; }
-#aboutus section + section { border-top:1px solid #58a6ff; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
+#aboutus ul li strong { color:#6fa1ff; }
+#aboutus section + section { border-top:1px solid #3a5ca8; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
 
 /* Recruitment */
-#recruitment .hero { text-align:center; margin-bottom:30px; background:#21262d; padding:30px; border-radius:10px; }
-#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#58a6ff; }
-#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #30363d; font-size:1rem; background:#0d1117; color:#c9d1d9; }
-.submit-btn { background:#238636; color:#fff; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
-.submit-btn:hover { background:#2ea043; }
+#recruitment .hero { text-align:center; margin-bottom:30px; }
+#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#3a5ca8; }
+#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:none; font-size:1rem; }
+.submit-btn { background:#3a5ca8; color:#fff; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
+.submit-btn:hover { background:#6fa1ff; }
 
 /* Hall of Fame */
-.hof-expansion { border:2px solid #30363d; border-radius:10px; margin-bottom:20px; overflow:hidden; }
+.hof-expansion { border:2px solid #1a1a1a; border-radius:10px; margin-bottom:20px; overflow:hidden; }
 .hof-expansion-header { background:#222; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-expansion-header:hover { background:#333; }
-.hof-expansion-header h3 { margin:0; color:#c9d1d9; }
-.hof-expansion-content { max-height:0; overflow:hidden; transition:max-height 0.3s ease; padding:0 15px; }
-.hof-expansion-content.open { max-height:2000px; }
+.hof-expansion-header h3 { margin:0; color:#3a5ca8; }
+.hof-expansion-content { overflow: visible; padding:0 15px; }
 
-.hof-season { border:1px solid #30363d; border-radius:8px; margin:15px 0; overflow:hidden; }
+/* Seasons */
+.hof-season { border:1px solid #111; border-radius:8px; margin:15px 0; overflow:hidden; }
 .hof-season-header { background:#333; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-season-header:hover { background:#444; }
-.hof-season-header h4 { margin:0; color:#58a6ff; }
+.hof-season-header h4 { margin:0; color:#6fa1ff; }
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
-.hof-season-content.open { max-height:2000px; padding:10px; }
+.hof-season-content.open { max-height:2000px; }
 
 .hof-kills img { border-radius:10px; margin-bottom:10px; width:100%; display:block; }
 .hof-video iframe { border-radius:10px; margin-top:10px; }
 
 /* Footer */
-footer { text-align:center; padding:20px; border-top:2px solid #58a6ff; margin-top:40px; background:#161b22; }
+footer { text-align:center; padding:20px; border-top:2px solid #3a5ca8; margin-top:40px; color:#cfd8f1; }
 
 /* Responsive */
 @media screen and (max-width:768px){
   header nav a{ display:block; margin:10px 0; }
-  #aboutus h2{ font-size:2rem; }
-  #aboutus h3{ font-size:1.5rem; }
-  #aboutus p, #aboutus ul li{ font-size:1rem; }
+  #aboutus h2{ font-size:1.8rem; }
+  #aboutus h3{ font-size:1.3rem; }
+  #aboutus p, #aboutus ul li{ font-size:0.95rem; }
   #aboutus::before{ width:150px; height:150px; }
-  .site-logo { height:40px; top:5px; left:10px; }
 }
