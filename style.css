@@ -56,6 +56,26 @@ header nav a:hover { color:#58a6ff; }
 /* Footer */
 footer { text-align:center; padding:20px; border-top:2px solid #58a6ff; margin-top:40px; background:#161b22; }
 
+.recruitment-info {
+  background:#21262d;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+  font-size:1rem;
+  color:#c9d1d9;
+  border:1px solid #30363d;
+}
+
+.recruitment-info a {
+  color:#58a6ff;
+  text-decoration:underline;
+}
+
+.recruitment-info a:hover {
+  color:#1f6feb;
+}
+
+
 /* Responsive */
 @media screen and (max-width:768px){
   header nav a{ display:block; margin:10px 0; }
