@@ -10,6 +10,13 @@ header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6f
 header nav a { color:#c9d1d9; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
 header nav a:hover { color:#58a6ff; }
 
+/* Active nav tab */
+header nav a.active {
+  color: #58a6ff;
+  font-weight: bold;
+  border-bottom: 2px solid #58a6ff;
+}
+
 /* Tabs */
 .tab-content { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; }
 .tab-content.active { display:block; }
@@ -92,8 +99,6 @@ footer { text-align:center; padding:20px; border-top:2px solid #58a6ff; margin-t
 .header-icon:hover {
   transform: scale(1.1);
 }
-
-
 
 /* Responsive */
 @media screen and (max-width:768px){
