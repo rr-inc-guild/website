@@ -1,12 +1,12 @@
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Roboto', sans-serif; background-color:#1a1a1a; color:#f5f5f5; }
+body { font-family: 'Roboto', sans-serif; background-color:#0d1117; color:#e6edf3; }
 
 /* Header */
-header { background:#111; padding:20px; text-align:center; border-bottom:2px solid #ffd700; }
-header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#ffd700; }
-header nav a { color:#f5f5f5; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
-header nav a:hover { color:#ffd700; }
+header { background:#161b22; padding:20px; text-align:center; border-bottom:2px solid #30363d; }
+header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#e0c060; }
+header nav a { color:#e6edf3; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
+header nav a:hover { color:#d98e48; }
 
 /* Tabs */
 .tab-content { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; }
@@ -18,41 +18,41 @@ header nav a:hover { color:#ffd700; }
   content:""; background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center; background-size:200px auto;
   opacity:0.05; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200px; height:200px; pointer-events:none; z-index:0;
 }
-#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#ffd700; margin-bottom:20px; text-align:center; text-shadow:1px1px3px #000; position:relative; z-index:1; }
-#aboutus h3 { font-size:1.8rem; color:#ffa500; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #ffd700; padding-bottom:5px; position:relative; z-index:1; }
+#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#e0c060; margin-bottom:20px; text-align:center; text-shadow:1px1px3px #000; position:relative; z-index:1; }
+#aboutus h3 { font-size:1.8rem; color:#d98e48; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #30363d; padding-bottom:5px; position:relative; z-index:1; }
 #aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; }
 #aboutus ul { list-style:disc; margin-left:30px; margin-bottom:20px; position:relative; z-index:1; }
 #aboutus ul li { font-size:1.1rem; margin-bottom:10px; }
-#aboutus ul li strong { color:#ffd700; }
-#aboutus section + section { border-top:1px solid #ffd700; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
+#aboutus ul li strong { color:#e0c060; }
+#aboutus section + section { border-top:1px solid #30363d; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
 
 /* Recruitment */
 #recruitment .hero { text-align:center; margin-bottom:30px; }
-#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#ffd700; }
-#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:none; font-size:1rem; }
-.submit-btn { background:#ffd700; color:#111; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
-.submit-btn:hover { background:#ffa500; }
+#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#e0c060; }
+#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #30363d; background:#161b22; color:#e6edf3; font-size:1rem; }
+.submit-btn { background:#e0c060; color:#0d1117; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
+.submit-btn:hover { background:#d98e48; }
 
 /* Hall of Fame */
-.hof-expansion { border:2px solid #000000; border-radius:10px; margin-bottom:20px; overflow:hidden; }
-.hof-expansion-header { background:#222; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
-.hof-expansion-header:hover { background:#333; }
-.hof-expansion-header h3 { margin:0; color:#FFFFFF; }
+.hof-expansion { border:2px solid #30363d; border-radius:10px; margin-bottom:20px; overflow:hidden; background:#161b22; }
+.hof-expansion-header { background:#1f242d; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
+.hof-expansion-header:hover { background:#2a303b; }
+.hof-expansion-header h3 { margin:0; color:#e6edf3; }
 .hof-expansion-content { overflow: visible; padding:0 15px; }
 
 /* Seasons */
-.hof-season { border:1px solid #000000; border-radius:8px; margin:15px 0; overflow:hidden; }
-.hof-season-header { background:#333; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
-.hof-season-header:hover { background:#444; }
-.hof-season-header h4 { margin:0; color:#0d1117; }
+.hof-season { border:1px solid #30363d; border-radius:8px; margin:15px 0; overflow:hidden; background:#1c2128; }
+.hof-season-header { background:#2a303b; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
+.hof-season-header:hover { background:#343b46; }
+.hof-season-header h4 { margin:0; color:#d98e48; }
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
 .hof-season-content.open { max-height:2000px; } /* large enough to fit content smoothly */
 
-.hof-kills img { border-radius:10px; margin-bottom:10px; width:100%; display:block; }
-.hof-video iframe { border-radius:10px; margin-top:10px; }
+.hof-kills img { border-radius:10px; margin-bottom:10px; width:100%; display:block; border:1px solid #30363d; }
+.hof-video iframe { border-radius:10px; margin-top:10px; border:1px solid #30363d; }
 
 /* Footer */
-footer { text-align:center; padding:20px; border-top:2px solid #ffd700; margin-top:40px; }
+footer { text-align:center; padding:20px; border-top:2px solid #30363d; margin-top:40px; color:#8b949e; }
 
 /* Responsive */
 @media screen and (max-width:768px){
