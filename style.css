@@ -4,9 +4,9 @@ body { font-family: 'Roboto', sans-serif; background-color:#0d1117; color:#e6edf
 
 /* Header */
 header { background:#161b22; padding:20px; text-align:center; border-bottom:2px solid #30363d; }
-header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#8b5cf6; } /* purple logo */
+header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; } /* main blue */
 header nav a { color:#e6edf3; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
-header nav a:hover { color:#8b5cf6; } /* purple hover */
+header nav a:hover { color:#4fd1c5; } /* teal hover */
 
 /* Tabs */
 .tab-content { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; }
@@ -27,7 +27,7 @@ header nav a:hover { color:#8b5cf6; } /* purple hover */
   z-index:0;
 }
 #aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; margin-bottom:20px; text-align:center; position:relative; z-index:1; }
-#aboutus h3 { font-size:1.8rem; color:#8b5cf6; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #30363d; padding-bottom:5px; position:relative; z-index:1; }
+#aboutus h3 { font-size:1.8rem; color:#4fd1c5; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #30363d; padding-bottom:5px; position:relative; z-index:1; }
 #aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; color:#e6edf3; }
 #aboutus ul { list-style:disc; margin-left:30px; margin-bottom:20px; position:relative; z-index:1; }
 #aboutus ul li { font-size:1.1rem; margin-bottom:10px; color:#c9d1d9; }
@@ -49,8 +49,8 @@ header nav a:hover { color:#8b5cf6; } /* purple hover */
   font-size:1rem; 
 }
 .submit-btn { 
-  background:#8b5cf6; 
-  color:#e6edf3; 
+  background:#58a6ff; 
+  color:#0d1117; 
   padding:10px 20px; 
   border:none; 
   border-radius:8px; 
@@ -58,7 +58,7 @@ header nav a:hover { color:#8b5cf6; } /* purple hover */
   font-weight:bold; 
   transition:background 0.3s; 
 }
-.submit-btn:hover { background:#7c3aed; }
+.submit-btn:hover { background:#4fd1c5; }
 
 /* Hall of Fame */
 .hof-expansion { border:2px solid #30363d; border-radius:10px; margin-bottom:20px; overflow:hidden; background:#161b22; }
@@ -70,7 +70,7 @@ header nav a:hover { color:#8b5cf6; } /* purple hover */
 .hof-season { border:1px solid #30363d; border-radius:8px; margin:15px 0; overflow:hidden; background:#0d1117; }
 .hof-season-header { background:#1f242d; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-season-header:hover { background:#2a2f38; }
-.hof-season-header h4 { margin:0; color:#8b5cf6; } /* purple season titles */
+.hof-season-header h4 { margin:0; color:#4fd1c5; } /* teal season titles */
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
 .hof-season-content.open { max-height:2000px; }
 
