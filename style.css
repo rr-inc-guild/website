@@ -4,9 +4,9 @@ body { font-family: 'Roboto', sans-serif; background-color:#0d1117; color:#e6edf
 
 /* Header */
 header { background:#161b22; padding:20px; text-align:center; border-bottom:2px solid #30363d; }
-header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#e0c060; }
+header h1 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; }
 header nav a { color:#e6edf3; margin:0 15px; text-decoration:none; font-size:1.1rem; transition:color 0.3s; cursor:pointer; }
-header nav a:hover { color:#d98e48; }
+header nav a:hover { color:#a371f7; }
 
 /* Tabs */
 .tab-content { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; }
@@ -15,41 +15,81 @@ header nav a:hover { color:#d98e48; }
 /* About Us */
 #aboutus { position:relative; }
 #aboutus::before {
-  content:""; background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center; background-size:200px auto;
-  opacity:0.05; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200px; height:200px; pointer-events:none; z-index:0;
+  content:""; 
+  background:url('https://i.imgur.com/qmxZVno.png') no-repeat center center; 
+  background-size:200px auto;
+  opacity:0.03; 
+  position:absolute; 
+  top:50%; left:50%; 
+  transform:translate(-50%,-50%); 
+  width:200px; height:200px; 
+  pointer-events:none; 
+  z-index:0;
 }
-#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#e0c060; margin-bottom:20px; text-align:center; text-shadow:1px1px3px #000; position:relative; z-index:1; }
-#aboutus h3 { font-size:1.8rem; color:#d98e48; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #30363d; padding-bottom:5px; position:relative; z-index:1; }
-#aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; }
+#aboutus h2 { font-family:'MedievalSharp', cursive; font-size:2.5rem; color:#58a6ff; margin-bottom:20px; text-align:center; position:relative; z-index:1; }
+#aboutus h3 { font-size:1.8rem; color:#a371f7; margin-top:30px; margin-bottom:15px; border-bottom:1px solid #30363d; padding-bottom:5px; position:relative; z-index:1; }
+#aboutus p { font-size:1.1rem; margin-bottom:15px; text-align:justify; position:relative; z-index:1; color:#e6edf3; }
 #aboutus ul { list-style:disc; margin-left:30px; margin-bottom:20px; position:relative; z-index:1; }
-#aboutus ul li { font-size:1.1rem; margin-bottom:10px; }
-#aboutus ul li strong { color:#e0c060; }
+#aboutus ul li { font-size:1.1rem; margin-bottom:10px; color:#c9d1d9; }
+#aboutus ul li strong { color:#58a6ff; }
 #aboutus section + section { border-top:1px solid #30363d; margin-top:30px; padding-top:30px; position:relative; z-index:1; }
 
 /* Recruitment */
 #recruitment .hero { text-align:center; margin-bottom:30px; }
-#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#e0c060; }
-#recruitment form input, #recruitment form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #30363d; background:#161b22; color:#e6edf3; font-size:1rem; }
-.submit-btn { background:#e0c060; color:#0d1117; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:background 0.3s; }
-.submit-btn:hover { background:#d98e48; }
+#recruitment .hero h2 { font-family:'MedievalSharp', cursive; font-size:2rem; color:#58a6ff; }
+#recruitment form input, 
+#recruitment form textarea { 
+  width:100%; 
+  padding:10px; 
+  margin-bottom:10px; 
+  border-radius:8px; 
+  border:1px solid #30363d; 
+  background:#161b22; 
+  color:#e6edf3; 
+  font-size:1rem; 
+}
+.submit-btn { 
+  background:#238636; 
+  color:#e6edf3; 
+  padding:10px 20px; 
+  border:none; 
+  border-radius:8px; 
+  cursor:pointer; 
+  font-weight:bold; 
+  transition:background 0.3s; 
+}
+.submit-btn:hover { background:#2ea043; }
 
 /* Hall of Fame */
 .hof-expansion { border:2px solid #30363d; border-radius:10px; margin-bottom:20px; overflow:hidden; background:#161b22; }
-.hof-expansion-header { background:#1f242d; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
-.hof-expansion-header:hover { background:#2a303b; }
-.hof-expansion-header h3 { margin:0; color:#e6edf3; }
-.hof-expansion-content { overflow: visible; padding:0 15px; }
+.hof-expansion-header { background:#161b22; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
+.hof-expansion-header:hover { background:#1f242d; }
+.hof-expansion-header h3 { margin:0; color:#58a6ff; }
+.hof-expansion-content { overflow:visible; padding:0 15px; }
 
-/* Seasons */
-.hof-season { border:1px solid #30363d; border-radius:8px; margin:15px 0; overflow:hidden; background:#1c2128; }
-.hof-season-header { background:#2a303b; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
-.hof-season-header:hover { background:#343b46; }
-.hof-season-header h4 { margin:0; color:#d98e48; }
+.hof-season { border:1px solid #30363d; border-radius:8px; margin:15px 0; overflow:hidden; background:#0d1117; }
+.hof-season-header { background:#1f242d; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
+.hof-season-header:hover { background:#2a2f38; }
+.hof-season-header h4 { margin:0; color:#a371f7; }
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
-.hof-season-content.open { max-height:2000px; } /* large enough to fit content smoothly */
+.hof-season-content.open { max-height:2000px; } /* large enough for smooth expand */
 
 .hof-kills img { border-radius:10px; margin-bottom:10px; width:100%; display:block; border:1px solid #30363d; }
 .hof-video iframe { border-radius:10px; margin-top:10px; border:1px solid #30363d; }
+
+/* Contact */
+#contact h3 { font-size:1.8rem; color:#58a6ff; margin-bottom:15px; }
+#contact form input, 
+#contact form textarea { 
+  width:100%; 
+  padding:10px; 
+  margin-bottom:10px; 
+  border-radius:8px; 
+  border:1px solid #30363d; 
+  background:#161b22; 
+  color:#e6edf3; 
+  font-size:1rem; 
+}
 
 /* Footer */
 footer { text-align:center; padding:20px; border-top:2px solid #30363d; margin-top:40px; color:#8b949e; }
