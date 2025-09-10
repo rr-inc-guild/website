@@ -52,24 +52,28 @@
     </section>
   </div>
 
-  <!-- Recruitment Tab -->
-  <div id="recruitment" class="tab-content">
-    <div class="hero">
-      <h2>Join Our Guild</h2>
-      <p>Cutting-edge progression, fun community, epic raids!</p>
-      <button onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
-    </div>
-    <section>
-      <h3>Application Form</h3>
-      <form id="apply-form">
-        <input type="text" placeholder="Character Name & Server" required>
-        <input type="text" placeholder="Class & Specialization" required>
-        <input type="url" placeholder="Armory Link">
-        <textarea placeholder="Tell us why you want to join" rows="4" required></textarea>
-        <button type="submit" class="submit-btn">Submit Application</button>
-      </form>
-    </section>
+<!-- Recruitment Tab -->
+<div id="recruitment" class="tab-content">
+  <div class="hero">
+    <h2>Join Our Guild</h2>
+    <p>Cutting-edge progression, fun community, epic raids!</p>
+    <button onclick="window.open('https://discord.gg/uvbc7suW8A', '_blank')" class="submit-btn">Join Our Discord</button>
   </div>
+  <section>
+    <h3>Application Form</h3>
+    <!-- Replace this iframe src with your Google Form embed link -->
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeNuZYMojiDAGUyYToVkX5eLY2u0AXA-Bt-RhsHYuBNXaNxWA/viewform?embedded=true" 
+      width="100%" 
+      height="1000" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0">
+      Loading…
+    </iframe>
+  </section>
+</div>
+
 
   <!-- Hall of Fame Tab -->
   <div id="halloffame" class="tab-content">
