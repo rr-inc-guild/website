@@ -11,15 +11,16 @@
 
   <!-- Header -->
   <header>
-    <img src="./logo-realm.png" class="site-logo" alt="RR Inc Logo">
     <div class="header-inner">
+      <img src="./logo-realm.png" alt="RR Inc Logo" class="site-logo">
       <h1>RR Inc</h1>
-      <nav>
-        <a href="#" onclick="showTab('aboutus')">About Us</a>
-        <a href="#" onclick="showTab('recruitment')">Recruitment</a>
-        <a href="#" onclick="showTab('halloffame')">Hall of Fame</a>
-      </nav>
     </div>
+    <nav>
+      <a href="#" onclick="showTab('aboutus')">About Us</a>
+      <a href="#" onclick="showTab('recruitment')">Recruitment</a>
+      <a href="#" onclick="showTab('halloffame')">Hall of Fame</a>
+      <a href="#" onclick="showTab('contact')">Contact</a>
+    </nav>
   </header>
 
   <!-- About Us Tab -->
@@ -76,6 +77,23 @@
     <div id="hof-container"></div>
   </div>
 
+  <!-- Contact Tab -->
+  <div id="contact" class="tab-content">
+    <section>
+      <h3>Contact Us</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Message" rows="4" required></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </section>
+    <section>
+      <h3>Join Our Discord</h3>
+      <button onclick="window.open('https://discord.gg/yourlink', '_blank')" class="submit-btn">Join Discord</button>
+    </section>
+  </div>
+
   <!-- Footer -->
   <footer>
     &copy; 2025 RR Inc. All Rights Reserved.
@@ -88,7 +106,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Hall of Fame data (same as before)
+    // Hall of Fame data
     const hallOfFameData = [
       {
         expansion: "The War Within (2025 - 2026)",
@@ -136,6 +154,35 @@
             videoId: "KD_0GajtGT4",
             killScreenshots: [
               "./kill_screenshots/dragonflight/raszageth.png"
+            ]
+          }
+        ]
+      },
+      {
+        expansion: "Shadowlands (2021 - 2022)",
+        seasons: [
+          {
+            title: "Season 3 - Sepulcher of the First Ones.",
+            description: "Our Mythic Jailer kill",
+            videoId: "qT2MJXT0WIA",
+            killScreenshots: [
+              "./kill_screenshots/shadowlands/jailer.jpg"
+            ]
+          },
+          {
+            title: "Season 2 - Sanctum of Domination.",
+            description: "Our Mythic Sylvanas Windrunner kill",
+            videoId: "K_OVVVdyXpw",
+            killScreenshots: [
+              "./kill_screenshots/shadowlands/sylvanas.jpg"
+            ]
+          },
+          {
+            title: "Season 1 - Castle Nathria.",
+            description: "Our Mythic Sire Denathrius kill",
+            videoId: "gQYuEKEQlXY",
+            killScreenshots: [
+              "./kill_screenshots/shadowlands/denathrius.jpg"
             ]
           }
         ]
