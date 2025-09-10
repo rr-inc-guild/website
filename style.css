@@ -44,7 +44,7 @@ header nav a:hover { color:#ffd700; }
 .hof-season { border:1px solid #000000; border-radius:8px; margin:15px 0; overflow:hidden; }
 .hof-season-header { background:#333; padding:10px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-season-header:hover { background:#444; }
-.hof-season-header h4 { margin:0; color:#000000; }
+.hof-season-header h4 { margin:0; color:#FFFF00; }
 .hof-season-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 10px; }
 .hof-season-content.open { max-height:2000px; } /* large enough to fit content smoothly */
 
