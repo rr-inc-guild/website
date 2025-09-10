@@ -34,10 +34,10 @@ header nav a:hover { color:#ffd700; }
 .submit-btn:hover { background:#ffa500; }
 
 /* Hall of Fame */
-.hof-expansion { border:2px solid #ffd700; border-radius:10px; margin-bottom:20px; overflow:hidden; }
+.hof-expansion { border:2px solid #24531b; border-radius:10px; margin-bottom:20px; overflow:hidden; }
 .hof-expansion-header { background:#222; padding:15px; cursor:pointer; user-select:none; transition:background 0.3s; }
 .hof-expansion-header:hover { background:#333; }
-.hof-expansion-header h3 { margin:0; color:#ffd700; }
+.hof-expansion-header h3 { margin:0; color:#24531b; }
 .hof-expansion-content { overflow: visible; padding:0 15px; }
 
 /* Seasons */
